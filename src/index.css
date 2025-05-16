@@ -15,6 +15,10 @@
   font-family: HelveticaNowLight;
   src: url("../src/assets/fonts/helvetica-nowDisplay/HelveticaNowDisplay-Light.ttf")
 }  
+@font-face{
+  font-family: HelveticaNowBold;
+  src: url("../src/assets/fonts/helvetica-nowDisplay/HelveticaNowDisplay-Bold.ttf")
+}  
 
 @import "tailwindcss";
 
@@ -23,6 +27,7 @@
   --font-ponjoung: Ponjoung , "sans-serif";
   --font-helvetica-thin: HelveticaNowThin , "sans-serif";
   --font-helvetica-light: HelveticaNowLight , "sans-serif";
+  --font-helvetica-bold: HelveticaNowBold , "sans-serif";
 }
 
 @keyframes marquee {

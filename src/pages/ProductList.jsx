@@ -1,5 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import ProductCard from "../components/Product/ProductCard";
+import sort from "../assets/icons/sort.svg";
+import filter from "../assets/icons/filter.svg";
+import FilterSidebar from "../components/Product/FilterSidebar";
+import SortByDropdown from "../components/Product/SortByDropdown";
 
 const ProductList = () => {
   const products = [
@@ -36,18 +40,78 @@ const ProductList = () => {
       discount: "20",
     },
   ];
+
+  const [filterState, setFilterState] = useState({
+    open: false,
+    submenu: null,
+  });
+
+  const [sortByState, setSortByState] = useState({
+    open: false,
+    selected: "recommended",
+  });
+
   return (
-    <div className=" py-6">
-      <div className="flex justify-between px-10 items-center mb-4">
-        <span className="text-sm">SORT BY +</span>
-        <span className="text-sm">FILTER</span>
+    <>
+      {" "}
+      <div className=" py-6">
+        <div className="flex justify-between px-5  items-center  mb-4">
+          <div className="relative">
+            <div
+              className="flex  items-center cursor-pointer gap-2 hover:text-gray-400 text-[#1E1E1E]"
+              onClick={() =>
+                setSortByState((prev) => ({
+                  ...prev,
+                  open: !prev.open,
+                }))
+              }
+            >
+              <span className="text-sm lg:text-base  font-bold">SORT BY</span>
+              <img src={sort} alt="sort by" className="w-8 h-8" />
+            </div>
+            {sortByState.open && (
+              <SortByDropdown
+                sortByState={sortByState}
+                setSortByState={setSortByState}
+              />
+            )}
+          </div>
+          <div
+            className="flex items-center gap-2 cursor-pointer hover:text-gray-400 text-[#1E1E1E]"
+            onClick={() => {
+              setFilterState({ open: true, submenu: null });
+              setSortByState(false);
+            }}
+          >
+            <span className="text-sm lg:text-base  font-bold">FILTER</span>
+            <img src={filter} alt="filter" className="w-8 h-8" />
+          </div>
+        </div>
+        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 space-y-12">
+          {products.map((item, index) => (
+            <ProductCard key={index} product={item} />
+          ))}
+        </div>
       </div>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 ">
-        {products.map((item, index) => (
-          <ProductCard key={index} product={item} />
-        ))}
-      </div>
-    </div>
+      <>
+        {/* Backdrop */}
+        <div
+          className={`fixed inset-0 bg-black/75 z-40 transition-opacity duration-400 ${
+            filterState.open
+              ? "opacity-100 pointer-events-auto"
+              : "opacity-0 pointer-events-none"
+          }`}
+          onClick={() => setFilterState({ open: false, submenu: null })}
+        ></div>
+
+        {/* Sidebar */}
+        <FilterSidebar
+          filterState={filterState}
+          setFilterState={setFilterState}
+          onClose={() => setFilterState({ open: false, submenu: null })}
+        />
+      </>
+    </>
   );
 };
 

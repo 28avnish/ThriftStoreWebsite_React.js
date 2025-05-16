@@ -174,7 +174,7 @@ const MiddleHeader = () => {
       <>
         {/* Backdrop */}
         <div
-          className={`fixed inset-0 bg-black/50 z-40 transition-opacity duration-300 ${
+          className={`fixed inset-0 bg-black/50 z-40 transition-opacity duration-500 ${
             searchOpen
               ? "opacity-100 pointer-events-auto"
               : "opacity-0 pointer-events-none"
@@ -233,7 +233,7 @@ const MiddleHeader = () => {
         </div>
       </>
 
-      {/* MENU SIDEBAR FOR MOBILE AND MEDIUM SCREENS */}
+      {/* MENU SIDEBAR FOR MOBILE MEDIUM AND LARGE SCREENS */}
 
       <>
         {/* Overlay backdrop */}
@@ -246,138 +246,123 @@ const MiddleHeader = () => {
           onClick={() => setMenuState({ open: false, submenu: null })}
         />
 
-        {/* Sidebar */}
-        <>
-          {/* Overlay backdrop */}
-          <div
-            className={`fixed inset-0 bg-black/50 z-40 transition-opacity duration-500 ${
-              menuState.open
-                ? "opacity-100 pointer-events-auto"
-                : "opacity-0 pointer-events-none"
-            }`}
-            onClick={() => setMenuState({ open: false, submenu: null })}
-          />
-
-          {/* Sidebar Container */}
-          <div
-            className={`fixed inset-y-0 right-0 z-50 bg-white w-full md:w-1/2 transform transition-transform duration-500 ${
-              menuState.open ? "translate-x-0" : "translate-x-full"
-            } h-full overflow-hidden`}
-          >
-            {/* Header */}
-            <div className="flex justify-between items-center p-4 ">
-              {menuState.submenu ? (
-                <>
-                  <img
-                    src={arrowLeft}
-                    alt="back"
-                    className="h-6 cursor-pointer"
-                    onClick={() => setMenuState({ open: true, submenu: null })}
-                  />
-                  <h2 className="text-sm font-bold uppercase">
-                    {menuState.submenu}
-                  </h2>
+        {/* Sidebar Container */}
+        <div
+          className={`fixed inset-y-0 right-0 z-50 bg-white w-full md:w-1/2 transform transition-transform duration-500 ${
+            menuState.open ? "translate-x-0" : "translate-x-full"
+          } h-full overflow-hidden`}
+        >
+          {/* Header */}
+          <div className="flex justify-between items-center p-4 ">
+            {menuState.submenu ? (
+              <>
+                <img
+                  src={arrowLeft}
+                  alt="back"
+                  className="h-6 cursor-pointer"
+                  onClick={() => setMenuState({ open: true, submenu: null })}
+                />
+                <h2 className="text-sm font-bold uppercase">
+                  {menuState.submenu}
+                </h2>
+                <img
+                  src={closeCircle}
+                  alt="close"
+                  className="h-6 cursor-pointer"
+                  onClick={() => setMenuState({ open: false, submenu: null })}
+                />
+              </>
+            ) : (
+              <>
+                <div className="pt-2 px-2  font-ponjoung tracking-widest font-extrabold text-[#E55100]   text-2xl">
+                  THRIFTED.
+                </div>
+                <div className="flex justify-end w-full">
                   <img
                     src={closeCircle}
                     alt="close"
                     className="h-6 cursor-pointer"
                     onClick={() => setMenuState({ open: false, submenu: null })}
                   />
-                </>
-              ) : (
-                <>
-                  <div className="pt-2 px-2  font-ponjoung tracking-widest font-extrabold text-[#E55100]   text-2xl">
-                    THRIFTED.
-                  </div>
-                  <div className="flex justify-end w-full">
-                    <img
-                      src={closeCircle}
-                      alt="close"
-                      className="h-6 cursor-pointer"
-                      onClick={() =>
-                        setMenuState({ open: false, submenu: null })
-                      }
-                    />
-                  </div>
-                </>
-              )}
-            </div>
-
-            {/* Sliding Panels */}
-            <div className="relative h-[calc(100%-64px)]">
-              {" "}
-              {/* 64px = header height */}
-              <div
-                className={`flex w-[200%] h-full transition-transform duration-500 ${
-                  menuState.submenu ? "-translate-x-1/2" : "translate-x-0"
-                }`}
-              >
-                {/* Main Menu */}
-                <div className="w-1/2 h-full overflow-y-auto  pb-10">
-                  <p className="font-bold text-lg mb-4 px-6">NEW IN STORE</p>
-                  <p className="font-bold text-lg mb-6 px-6">CLEARANCE SALE</p>
-
-                  <ul className="space-y-2 font-helvetica-thin font-bold pb-5 px-6 ">
-                    <li
-                      onClick={() =>
-                        setMenuState({ open: true, submenu: "CLOTHING" })
-                      }
-                      className="cursor-pointer"
-                    >
-                      CLOTHING
-                    </li>
-                    <li>SPORT</li>
-                    <li>ACCESSORIES</li>
-                    <li>SWIMWEAR & BEACHWEAR</li>
-                    <li>SHOES</li>
-                    <li className="text-red-800">SALE</li>
-                  </ul>
-
-                  <CustomSwiper />
-
-                  <ul className="space-y-5 px-6 ">
-                    <li>SUSTAINABILITY</li>
-                    <li>CUSTOMER SERVICE</li>
-                    <li>NEWSLETTER</li>
-                  </ul>
                 </div>
+              </>
+            )}
+          </div>
 
-                {/* Submenu */}
-                <div className="w-1/2 h-full overflow-y-auto px-6 pb-10">
-                  <ul className="space-y-3 text-sm font-medium mt-4">
-                    <li>VIEW ALL</li>
-                    <li>TOPS</li>
-                    <li>DRESSES</li>
-                    <li>SHIRTS & BLOUSES</li>
-                    <li>JEANS</li>
-                    <li>TROUSERS</li>
-                    <li>NIGHTWEAR</li>
-                    <li>LINEN CLOTHING</li>
-                    <li>SKIRTS</li>
-                    <li>SHORTS</li>
-                    <li>LINGERIE</li>
-                    <li>BASICS</li>
-                    <li>JUMPSUITS</li>
-                    <li>LOUNGEWEAR</li>
-                    <li>SWEATERS & CARDIGANS</li>
-                    <li>SWIMWEAR & BEACHWEAR</li>
-                    <li>KNITWEAR</li>
-                    <li>BLAZERS & WAISTCOATS</li>
-                    <li>JACKETS & COATS</li>
-                    <li>SOCKS & TIGHTS</li>
-                    <li>SPORT</li>
-                    <li>MATERNITY WEAR</li>
-                    <li>SWEATSHIRTS & HOODIES</li>
-                    <li>CARE PRODUCTS</li>
-                    <li>PREMIUM SELECTION</li>
-                    <li>H&M EDITION</li>
-                    <li>MERCH & GRAPHICS</li>
-                  </ul>
-                </div>
+          {/* Sliding Panels */}
+          <div className="relative h-[calc(100%-64px)]">
+            {" "}
+            {/* 64px = header height */}
+            <div
+              className={`flex w-[200%] h-full transition-transform duration-500 ${
+                menuState.submenu ? "-translate-x-1/2" : "translate-x-0"
+              }`}
+            >
+              {/* Main Menu */}
+              <div className="w-1/2 h-full overflow-y-auto  pb-10">
+                <p className="font-bold text-lg mb-4 px-6">NEW IN STORE</p>
+                <p className="font-bold text-lg mb-6 px-6">CLEARANCE SALE</p>
+
+                <ul className="space-y-2 font-helvetica-thin font-bold pb-5 px-6 ">
+                  <li
+                    onClick={() =>
+                      setMenuState({ open: true, submenu: "CLOTHING" })
+                    }
+                    className="cursor-pointer"
+                  >
+                    CLOTHING
+                  </li>
+                  <li>SPORT</li>
+                  <li>ACCESSORIES</li>
+                  <li>SWIMWEAR & BEACHWEAR</li>
+                  <li>SHOES</li>
+                  <li className="text-red-800">SALE</li>
+                </ul>
+
+                <CustomSwiper />
+
+                <ul className="space-y-5 px-6 ">
+                  <li>SUSTAINABILITY</li>
+                  <li>CUSTOMER SERVICE</li>
+                  <li>NEWSLETTER</li>
+                </ul>
+              </div>
+
+              {/* Submenu */}
+              <div className="w-1/2 h-full overflow-y-auto px-6 pb-10">
+                <ul className="space-y-3 text-sm font-medium mt-4">
+                  <li>VIEW ALL</li>
+                  <li>TOPS</li>
+                  <li>DRESSES</li>
+                  <li>SHIRTS & BLOUSES</li>
+                  <li>JEANS</li>
+                  <li>TROUSERS</li>
+                  <li>NIGHTWEAR</li>
+                  <li>LINEN CLOTHING</li>
+                  <li>SKIRTS</li>
+                  <li>SHORTS</li>
+                  <li>LINGERIE</li>
+                  <li>BASICS</li>
+                  <li>JUMPSUITS</li>
+                  <li>LOUNGEWEAR</li>
+                  <li>SWEATERS & CARDIGANS</li>
+                  <li>SWIMWEAR & BEACHWEAR</li>
+                  <li>KNITWEAR</li>
+                  <li>BLAZERS & WAISTCOATS</li>
+                  <li>JACKETS & COATS</li>
+                  <li>SOCKS & TIGHTS</li>
+                  <li>SPORT</li>
+                  <li>MATERNITY WEAR</li>
+                  <li>SWEATSHIRTS & HOODIES</li>
+                  <li>CARE PRODUCTS</li>
+                  <li>PREMIUM SELECTION</li>
+                  <li>H&M EDITION</li>
+                  <li>MERCH & GRAPHICS</li>
+                </ul>
               </div>
             </div>
           </div>
-        </>
+        </div>
       </>
     </div>
   );

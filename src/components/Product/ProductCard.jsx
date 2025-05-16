@@ -24,13 +24,15 @@ const ProductCard = ({ product }) => {
       </div>
 
       {/* Product Info */}
-      <div className="mt-2 text-center">
-        <p className="text-sm text-gray-600">{product.title}</p>
-        <div className="text-sm">
-          <span className="text-red-600 font-bold mr-2">
+      <div className="mt-2 px-2  sm:ml-5">
+        <p className="font-semibold  text-[15px] uppercase text-black tracking-wider line-clamp-2">
+          {product.title}
+        </p>
+        <div className="">
+          <span className="text-[#C5000D] font-bold text-[15px] mr-2">
             Rs.{product.newPrice}
           </span>
-          <span className="line-through text-gray-500">
+          <span className="line-through text-[15px] text-black font-helvetica-thin font-bold">
             Rs.{product.oldPrice}
           </span>
         </div>
