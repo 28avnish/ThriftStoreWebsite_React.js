@@ -1,13 +1,24 @@
 import React from "react";
 import heartCircle from "../../assets/icons/heart-circle.svg";
+import hoverHeartCircle from "../../assets/icons/heart-circle-2.svg";
+import { Link } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
   return (
-    <div className="relative group w-full  ">
+    <Link to={"/productDetails"} className="relative  w-full  ">
       {/* Wishlist Icon */}
       <div className="absolute top-2 right-2 z-10">
-        <button>
-          <img src={heartCircle} alt="wishlist" className="w-8 h-8" />
+        <button className="group">
+          <img
+            src={heartCircle}
+            alt="wishlist"
+            className="group-hover:hidden w-8 h-8"
+          />
+          <img
+            src={hoverHeartCircle}
+            alt="wishlist"
+            className="hidden group-hover:block w-8 h-8"
+          />
         </button>
       </div>
 
@@ -24,8 +35,8 @@ const ProductCard = ({ product }) => {
       </div>
 
       {/* Product Info */}
-      <div className="mt-2 px-2  sm:ml-5">
-        <p className="font-semibold  text-[15px] uppercase text-black tracking-wider line-clamp-2">
+      <div className="mt-2 px-2 sm:ml-5">
+        <p className="font-semibold text-[15px] uppercase text-black tracking-wider line-clamp-2">
           {product.title}
         </p>
         <div className="">
@@ -37,7 +48,7 @@ const ProductCard = ({ product }) => {
           </span>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

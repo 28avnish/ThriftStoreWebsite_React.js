@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import ProductCard from "../components/Product/ProductCard";
-import sort from "../assets/icons/sort.svg";
+import sortAdd from "../assets/icons/sort.svg";
+import sortMinus from "../assets/icons/minus.svg";
 import filter from "../assets/icons/filter.svg";
 import FilterSidebar from "../components/Product/FilterSidebar";
 import SortByDropdown from "../components/Product/SortByDropdown";
+import CategorySlider from "../components/Product/CategorySlider";
+import Pagination from "../components/Product/Pagination";
 
 const ProductList = () => {
   const products = [
@@ -55,8 +58,18 @@ const ProductList = () => {
     <>
       {" "}
       <div className=" py-6">
-        <div className="flex justify-between px-5  items-center  mb-4">
-          <div className="relative">
+        <CategorySlider />
+        <div className="flex justify-between px-5  items-center  my-4">
+          <div
+            className="relative"
+            tabIndex={0}
+            onBlur={() =>
+              setSortByState((prev) => ({
+                ...prev,
+                open: false,
+              }))
+            }
+          >
             <div
               className="flex  items-center cursor-pointer gap-2 hover:text-gray-400 text-[#1E1E1E]"
               onClick={() =>
@@ -67,7 +80,11 @@ const ProductList = () => {
               }
             >
               <span className="text-sm lg:text-base  font-bold">SORT BY</span>
-              <img src={sort} alt="sort by" className="w-8 h-8" />
+              {sortByState.open ? (
+                <img src={sortMinus} alt="sort by" className="w-6 h-6" />
+              ) : (
+                <img src={sortAdd} alt="sort by" className="w-8 h-8" />
+              )}
             </div>
             {sortByState.open && (
               <SortByDropdown
@@ -111,6 +128,7 @@ const ProductList = () => {
           onClose={() => setFilterState({ open: false, submenu: null })}
         />
       </>
+      <Pagination />
     </>
   );
 };

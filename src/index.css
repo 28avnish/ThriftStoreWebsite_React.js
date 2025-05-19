@@ -21,6 +21,7 @@
 }  
 
 @import "tailwindcss";
+@plugin 'tailwind-scrollbar';
 
 @theme{
   --font-sage: Sage , "sans-serif";
@@ -38,3 +39,4 @@
     transform: translateX(-30%);
   }
 }
+

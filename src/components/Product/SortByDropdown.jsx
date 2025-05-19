@@ -20,6 +20,7 @@ const SortByDropdown = ({ sortByState, setSortByState }) => {
         <label
           key={option.value}
           className="flex items-center space-x-2 mb-2 cursor-pointer"
+          onMouseDown={() => handleSelect(option.value)} // ✅ This runs before blur
         >
           <input
             type="radio"

@@ -8,7 +8,7 @@ const Marquee = () => {
       // }}
     >
       <p
-        className="text-[#F4ECD7] lg:text-xl "
+        className="text-[#F4ECD7] text-sm lg:text-xl "
         style={{
           animation: "marquee 10s linear infinite",
           whiteSpace: "nowrap", // To prevent text from wrapping
