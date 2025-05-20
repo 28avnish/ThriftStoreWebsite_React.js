@@ -10,7 +10,7 @@ import arrowRight from "../../assets/icons/arrow-right-4.svg";
 
 const DEFAULT_RANGE = [279, 2265.41];
 
-const FilterSidebar = ({ filterState, setFilterState, onClose }) => {
+const FilterSidebar = ({ filterState, setFilterState }) => {
   const [priceRange, setPriceRange] = useState(DEFAULT_RANGE);
   const [isPriceOpen, setIsPriceOpen] = useState(true);
   const [selectedFilters, setSelectedFilters] = useState([]);
@@ -64,7 +64,7 @@ const FilterSidebar = ({ filterState, setFilterState, onClose }) => {
 
   return (
     <div
-      className={`fixed text-sm font-bold tracking-widest top-1/8 sm:top-0 sm:right-0 w-full sm:w-[470px] h-full bg-white z-50 flex flex-col shadow-lg transition-transform duration-400 ease-in-out transform ${
+      className={`fixed text-sm font-bold tracking-widest top-1/8 sm:top-0 sm:right-0 w-full sm:w-[470px] h-full bg-white z-50 flex flex-col shadow-lg transition-transform duration-300 ease-in-out transform ${
         filterState.open
           ? "translate-y-0 sm:translate-x-0 sm:translate-y-0"
           : "translate-y-full sm:translate-x-full sm:translate-y-0"

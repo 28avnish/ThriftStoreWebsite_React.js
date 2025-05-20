@@ -16,6 +16,14 @@
   src: url("../src/assets/fonts/helvetica-nowDisplay/HelveticaNowDisplay-Light.ttf")
 }  
 @font-face{
+  font-family: HelveticaNowRegular;
+  src: url("../src/assets/fonts/helvetica-nowDisplay/HelveticaNowDisplay-Regular.ttf")
+}  
+@font-face{
+  font-family: HelveticaNowMedium;
+  src: url("../src/assets/fonts/helvetica-nowDisplay/HelveticaNowDisplay-Medium.ttf")
+}  
+@font-face{
   font-family: HelveticaNowBold;
   src: url("../src/assets/fonts/helvetica-nowDisplay/HelveticaNowDisplay-Bold.ttf")
 }  
@@ -28,6 +36,8 @@
   --font-ponjoung: Ponjoung , "sans-serif";
   --font-helvetica-thin: HelveticaNowThin , "sans-serif";
   --font-helvetica-light: HelveticaNowLight , "sans-serif";
+  --font-helvetica-regular: HelveticaNowRegular , "sans-serif";
+  --font-helvetica-medium: HelveticaNowMedium , "sans-serif";
   --font-helvetica-bold: HelveticaNowBold , "sans-serif";
 }
 

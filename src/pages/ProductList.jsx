@@ -43,6 +43,13 @@ const ProductList = () => {
       discount: "20",
     },
   ];
+  const sortByOptions = [
+    { label: "Recommended", value: "recommended" },
+    { label: "Newest", value: "newest" },
+    { label: "Lowest price", value: "lowest" },
+    { label: "Highest price", value: "highest" },
+    { label: "Highest discount", value: "discount" },
+  ];
 
   const [filterState, setFilterState] = useState({
     open: false,
@@ -90,6 +97,7 @@ const ProductList = () => {
               <SortByDropdown
                 sortByState={sortByState}
                 setSortByState={setSortByState}
+                options={sortByOptions}
               />
             )}
           </div>
