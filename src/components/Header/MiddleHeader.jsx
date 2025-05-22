@@ -98,13 +98,13 @@ const MiddleHeader = () => {
           )}
         </div>
 
-        <div className=" lg:hidden pt-2  font-ponjoung tracking-widest font-extrabold text-[#E55100] text-lg sm:text-2xl">
-          THRIFTED.
+        <div className=" lg:hidden pt-2   font-ponjoung tracking-widest font-extrabold text-[#E55100] text-lg sm:text-2xl">
+          THRIFTY THREADS.
         </div>
 
         <div>
-          <strong className="hidden lg:block font-ponjoung tracking-widest font-extrabold text-[#E55100] text-4xl">
-            THRIFTED.
+          <strong className="hidden lg:block font-ponjoung tracking-widest font-extrabold text-[#E55100] lg:text-3xl xl:text-4xl">
+            THRIFTY THREADS.
           </strong>
         </div>
         <div className="flex gap-5 w-72 justify-end">
@@ -274,10 +274,10 @@ const MiddleHeader = () => {
               </>
             ) : (
               <>
-                <div className="pt-2 px-2  font-ponjoung tracking-widest font-extrabold text-[#E55100]   text-2xl">
-                  THRIFTED.
+                <div className="pt-2 px-2 font-ponjoung tracking-widest font-extrabold text-[#E55100]   text-2xl">
+                  THRIFTY THREADS.
                 </div>
-                <div className="flex justify-end w-full">
+                <div>
                   <img
                     src={closeCircle}
                     alt="close"

@@ -5,7 +5,10 @@ import { Link } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
   return (
-    <Link to={"/productDetails"} className="relative  w-full  ">
+    <Link
+      to={"/productDetails"}
+      className="relative  w-full font-helvetica-medium "
+    >
       {/* Wishlist Icon */}
       <div className="absolute top-2 right-2 z-10">
         <button className="group">
@@ -36,11 +39,11 @@ const ProductCard = ({ product }) => {
 
       {/* Product Info */}
       <div className="mt-2 px-2 sm:ml-5">
-        <p className="font-semibold text-[15px] uppercase text-black tracking-wider line-clamp-2">
+        <p className=" text-[15px] uppercase text-black tracking-wider line-clamp-2">
           {product.title}
         </p>
         <div className="">
-          <span className="text-[#C5000D] font-bold text-[15px] mr-2">
+          <span className="text-[#C5000D] font-helvetica-light font-bold text-[15px] mr-2">
             Rs.{product.newPrice}
           </span>
           <span className="line-through text-[15px] text-black font-helvetica-thin font-bold">

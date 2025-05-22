@@ -78,12 +78,11 @@ const Footer = () => {
           </div>
 
           <div class="hidden lg:block text-right text-sm font-bold">
-            <p>
-              Thrifted Site
-              <br />
-              is developed by
-            </p>
-            <h1 class="text-2xl font-bold mt-2">Avnish</h1>
+            <p>THRIFT HAPPENS</p>
+            <h1 class="font-ponjoung tracking-widest font-extrabold text-[#E55100] text-3xl mt-2">
+              {" "}
+              THRIFTY <br /> THREADS.
+            </h1>
           </div>
         </div>
         <div class=" mx-auto  px-4 py-6  gap-10">
@@ -104,19 +103,20 @@ const Footer = () => {
             </form>
           </div>
 
-          <div class="flex justify-between items-center border-b pb-1 border-black lg:hidden pt-5 font-bold">
+          <div class="flex justify-between items-center border-b pb-1 text-4xl sm:text-5xl font-extrabold border-black lg:hidden pt-5 ">
             <p>
-              Thrifted Site
+              THRIFT
               <br />
-              is developed by
+              HAPPENS
             </p>
-            <h1 class="text-5xl font-bold mt-2">Avnish</h1>
+            <h1 class="font-ponjoung tracking-widest font-extrabold text-[#E55100] text-2xl sm:text-3xl xl:text-4xl mt-2">
+              THRIFTY <br /> THREADS.
+            </h1>
           </div>
 
           <p class=" lg:hidden pt-5  max-w-md ">
-            Vazzi is located in Tiohtiá:ke/Montreal, on the traditional
-            territory of the Kanien'kehá:ka. We pay tribute to the Elders of
-            yesterday and today.
+            Thrifty Threads is your go-to online thrift store, offering
+            one-of-a-kind pieces, timeless style, and conscious fashion.
           </p>
         </div>
 
@@ -127,7 +127,7 @@ const Footer = () => {
         </div>
 
         <div class="lg:text-sm items-end mx-auto px-4 py-6 grid grid-cols-2 lg:grid-cols-4  lg:gap-10">
-          <p className="text-sm">2025 © Thrifted - Avnish</p>
+          <p className="text-sm">2025 © Thrifty Threads .</p>
 
           <div class="hidden lg:flex gap-4 ">
             <img src={instagram} className="h-8" alt="instagram" />
@@ -135,10 +135,9 @@ const Footer = () => {
             <img src={youtube} className="h-8" alt="youtube" />
           </div>
 
-          <p class="hidden lg:block text-xs max-w-md ">
-            Vazzi is located in Tiohtiá:ke/Montreal, on the traditional
-            territory of the Kanien'kehá:ka. We pay tribute to the Elders of
-            yesterday and today.
+          <p class="hidden lg:block text-sm max-w-md ">
+            Thrifty Threads is your go-to online thrift store, offering
+            one-of-a-kind pieces, timeless style, and conscious fashion.
           </p>
 
           <div class="justify-end flex gap-10 ">

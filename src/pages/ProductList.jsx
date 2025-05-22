@@ -64,7 +64,7 @@ const ProductList = () => {
   return (
     <>
       {" "}
-      <div className=" py-6">
+      <div className=" xl:py-6">
         <CategorySlider />
         <div className="flex justify-between px-5  items-center  my-4">
           <div

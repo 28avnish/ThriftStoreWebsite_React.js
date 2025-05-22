@@ -21,47 +21,58 @@ const categories = [
 const CategorySlider = () => {
   const [active, setActive] = useState("T-SHIRTS & TANKS");
   const scrollRef = useRef(null);
-  const isDown = useRef(false);
+  const isDragging = useRef(false);
   const startX = useRef(0);
   const scrollLeft = useRef(0);
 
+  // Mouse Events
   const handleMouseDown = (e) => {
-    isDown.current = true;
+    isDragging.current = true;
     startX.current = e.pageX - scrollRef.current.offsetLeft;
     scrollLeft.current = scrollRef.current.scrollLeft;
   };
 
-  const handleMouseLeave = () => {
-    isDown.current = false;
-  };
-
-  const handleMouseUp = () => {
-    isDown.current = false;
+  const handleMouseUpLeave = () => {
+    isDragging.current = false;
   };
 
   const handleMouseMove = (e) => {
-    if (!isDown.current) return;
+    if (!isDragging.current) return;
     e.preventDefault();
     const x = e.pageX - scrollRef.current.offsetLeft;
-    const walk = (x - startX.current) * 2; // scroll-fast
+    const walk = (x - startX.current) * 2;
+    scrollRef.current.scrollLeft = scrollLeft.current - walk;
+  };
+
+  // Touch Events
+  const handleTouchStart = (e) => {
+    startX.current = e.touches[0].pageX - scrollRef.current.offsetLeft;
+    scrollLeft.current = scrollRef.current.scrollLeft;
+  };
+
+  const handleTouchMove = (e) => {
+    const x = e.touches[0].pageX - scrollRef.current.offsetLeft;
+    const walk = (x - startX.current) * 2;
     scrollRef.current.scrollLeft = scrollLeft.current - walk;
   };
 
   return (
     <div
       ref={scrollRef}
-      className="overflow-hidden font-bold tracking-wider hover:overflow-x-auto whitespace-nowrap ms-5 pe-5 scrollbar-thin scrollbar-hover cursor-grab"
+      className="overflow-x-auto scrollbar-thin cursor-grab select-none ms-5 pe-5"
       onMouseDown={handleMouseDown}
-      onMouseLeave={handleMouseLeave}
-      onMouseUp={handleMouseUp}
+      onMouseUp={handleMouseUpLeave}
+      onMouseLeave={handleMouseUpLeave}
       onMouseMove={handleMouseMove}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
     >
-      <div className="flex w-max gap-2 py-2 ">
+      <div className="flex w-max gap-2 py-2 font-bold tracking-wider whitespace-nowrap">
         {categories.map((category) => (
           <button
             key={category}
             onClick={() => setActive(category)}
-            className={`border border-black px-4 py-2 text-sm whitespace-nowrap
+            className={`border border-black px-4 py-2 text-sm
               ${
                 active === category
                   ? "bg-black text-white font-helvetica-bold"

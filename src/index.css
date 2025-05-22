@@ -1,31 +1,31 @@
 @font-face{
   font-family: Sage;
-  src: url("../src/assets/fonts/Sage\ Grotesk.otf")
+  src: url("/fonts/Sage\ Grotesk.otf")
 }  
 @font-face{
   font-family: Ponjoung;
-  src: url("../src/assets/fonts/ponjoung/Ponjoung-Medium.otf")
+  src: url("/fonts/ponjoung/Ponjoung-Medium.otf")
 }  
  
 @font-face{
   font-family: HelveticaNowThin;
-  src: url("../src/assets/fonts/helvetica-nowDisplay/HelveticaNowDisplay-Thin.ttf")
+  src: url("/fonts/helvetica-nowDisplay/HelveticaNowDisplay-Thin.ttf")
 }  
 @font-face{
   font-family: HelveticaNowLight;
-  src: url("../src/assets/fonts/helvetica-nowDisplay/HelveticaNowDisplay-Light.ttf")
+  src: url("/fonts/helvetica-nowDisplay/HelveticaNowDisplay-Light.ttf")
 }  
 @font-face{
   font-family: HelveticaNowRegular;
-  src: url("../src/assets/fonts/helvetica-nowDisplay/HelveticaNowDisplay-Regular.ttf")
+  src: url("/fonts/helvetica-nowDisplay/HelveticaNowDisplay-Regular.ttf")
 }  
 @font-face{
   font-family: HelveticaNowMedium;
-  src: url("../src/assets/fonts/helvetica-nowDisplay/HelveticaNowDisplay-Medium.ttf")
+  src: url("/fonts/helvetica-nowDisplay/HelveticaNowDisplay-Medium.ttf")
 }  
 @font-face{
   font-family: HelveticaNowBold;
-  src: url("../src/assets/fonts/helvetica-nowDisplay/HelveticaNowDisplay-Bold.ttf")
+  src: url("/fonts/helvetica-nowDisplay/HelveticaNowDisplay-Bold.ttf")
 }  
 
 @import "tailwindcss";
