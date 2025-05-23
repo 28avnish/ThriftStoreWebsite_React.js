@@ -36,7 +36,7 @@ const Footer = () => {
       {" "}
       <footer
         ref={footerRef}
-        class="bg-[#F4ECD7] h- font-helvetica-light text-black font-extrabold"
+        class="bg-[#F4ECD7] font-helvetica-light text-black font-extrabold"
       >
         <div class=" mx-auto mb-10 lg:mb-16 px-4 py-6 grid grid-cols-2 lg:grid-cols-4 gap-10">
           <div class="space-y-1">

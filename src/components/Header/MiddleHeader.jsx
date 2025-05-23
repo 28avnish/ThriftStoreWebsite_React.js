@@ -12,6 +12,7 @@ import hoverHeart from "../../assets/icons/heart-2.svg";
 import menu from "../../assets/icons/menu.svg";
 import arrowLeft from "../../assets/icons/arrow-left.svg";
 import CustomSwiper from "./CustomSwiper";
+import CartDropdown from "../Cart/CartDropdown";
 
 const MiddleHeader = () => {
   const [search, setSearch] = useState(false);
@@ -145,7 +146,7 @@ const MiddleHeader = () => {
               alt="hover heart"
             />
           </div>
-          <div className="group cursor-pointer relative w-6 lg:w-8 lg:h-8">
+          <button className="group cursor-pointer relative w-8 lg:w-10 ">
             <img
               src={bag}
               className="absolute top-0 left-0 w-full h-full group-hover:hidden"
@@ -156,7 +157,10 @@ const MiddleHeader = () => {
               className="absolute top-0 left-0 w-full h-full hidden group-hover:block"
               alt="hover bag"
             />
-          </div>
+            <span className="absolute text-xs right-0 top-0">1</span>
+
+            <CartDropdown />
+          </button>
 
           <div
             className="xl:hidden cursor-pointer"
@@ -238,7 +242,7 @@ const MiddleHeader = () => {
       <>
         {/* Overlay backdrop */}
         <div
-          className={`fixed inset-0 bg-black/50 z-40 transition-opacity duration-500 ${
+          className={`fixed inset-0 bg-black/50 z-50 transition-opacity duration-500 ${
             menuState.open
               ? "opacity-100 pointer-events-auto"
               : "opacity-0 pointer-events-none"

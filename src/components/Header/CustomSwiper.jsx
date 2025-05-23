@@ -2,8 +2,8 @@ import { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Navigation } from "swiper/modules";
-import arrowRight from "../../assets/icons/arrow-right-3.svg";
-import arrowLeft from "../../assets/icons/arrow-left-2.svg";
+import arrowRight from "../../assets/icons/arrow-right-5.svg";
+import arrowLeft from "../../assets/icons/arrow-left-3.svg";
 
 export default function CustomSwiper() {
   const swiperRef = useRef();
@@ -16,13 +16,13 @@ export default function CustomSwiper() {
           onClick={() => swiperRef.current?.slidePrev()}
           className="w-6 h-6 flex items-center justify-center rounded-full hover:bg-gray-100"
         >
-          <img src={arrowLeft} className="h-5 mr-2" alt="arrowLeft" />
+          <img src={arrowLeft} className="h-6 w-6 mr-2" alt="arrowLeft" />
         </button>
         <button
           onClick={() => swiperRef.current?.slideNext()}
           className="w-6 h-6 flex items-center justify-center rounded-full hover:bg-gray-100"
         >
-          <img src={arrowRight} className="h-5 mr-2" alt="arrowRight" />
+          <img src={arrowRight} className="h-6 w-6 mr-2" alt="arrowRight" />
         </button>
       </div>
 

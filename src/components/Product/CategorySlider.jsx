@@ -67,7 +67,7 @@ const CategorySlider = () => {
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
     >
-      <div className="flex w-max gap-2 py-2 font-bold tracking-wider whitespace-nowrap">
+      <div className="flex w-max gap-2 py-2 font-helvetica-medium tracking-wide whitespace-nowrap">
         {categories.map((category) => (
           <button
             key={category}

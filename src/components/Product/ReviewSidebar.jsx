@@ -178,11 +178,11 @@ const ReviewSidebar = ({ reviewState, setReviewState }) => {
             )}
           </div>
 
-          <hr className="my-4 text-gray-200 border-1" />
+          <hr className="my-4 text-gray-200" />
 
           {/* Reviews */}
-          {reviewsData.map((review) => (
-            <div key={review.id} className="">
+          {reviewsData.map((review, idx) => (
+            <div key={review.id} className="mb-10">
               <div className="flex justify-between items-center mb-2">
                 <div className=" text-xl">
                   {" "}
@@ -210,7 +210,9 @@ const ReviewSidebar = ({ reviewState, setReviewState }) => {
                 {review.name} <span className="mx-1">•</span> Size:{" "}
                 {review.size}
               </div>
-              <hr className="my-10 text-gray-200 border-1" />
+              {idx < reviewsData.length - 1 && (
+                <hr className="my-10 text-gray-200 " />
+              )}{" "}
             </div>
           ))}
 

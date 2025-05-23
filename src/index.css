@@ -9,23 +9,23 @@
  
 @font-face{
   font-family: HelveticaNowThin;
-  src: url("/fonts/helvetica-nowDisplay/HelveticaNowDisplay-Thin.ttf")
+  src: url("/fonts/helvetica-nowDisplay/HelveticaNowDisplay-Thin.woff2")
 }  
 @font-face{
   font-family: HelveticaNowLight;
-  src: url("/fonts/helvetica-nowDisplay/HelveticaNowDisplay-Light.ttf")
+  src: url("/fonts/helvetica-nowDisplay/HelveticaNowDisplay-Light.woff2")
 }  
 @font-face{
   font-family: HelveticaNowRegular;
-  src: url("/fonts/helvetica-nowDisplay/HelveticaNowDisplay-Regular.ttf")
+  src: url("/fonts/helvetica-nowDisplay/HelveticaNowDisplay-Regular.woff2")
 }  
 @font-face{
   font-family: HelveticaNowMedium;
-  src: url("/fonts/helvetica-nowDisplay/HelveticaNowDisplay-Medium.ttf")
+  src: url("/fonts/helvetica-nowDisplay/HelveticaNowDisplay-Medium.woff2")
 }  
 @font-face{
   font-family: HelveticaNowBold;
-  src: url("/fonts/helvetica-nowDisplay/HelveticaNowDisplay-Bold.ttf")
+  src: url("/fonts/helvetica-nowDisplay/HelveticaNowDisplay-Bold.woff2")
 }  
 
 @import "tailwindcss";

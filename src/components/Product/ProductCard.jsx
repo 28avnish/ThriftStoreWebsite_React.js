@@ -1,6 +1,7 @@
 import React from "react";
 import heartCircle from "../../assets/icons/heart-circle.svg";
-import hoverHeartCircle from "../../assets/icons/heart-circle-2.svg";
+import hoverHeartCircle from "../../assets/icons/red-heart.svg";
+import activeHeartCircle from "../../assets/icons/red-heart-active.svg";
 import { Link } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
@@ -11,16 +12,26 @@ const ProductCard = ({ product }) => {
     >
       {/* Wishlist Icon */}
       <div className="absolute top-2 right-2 z-10">
-        <button className="group">
+        <button
+          className="group"
+          onClick={(e) => {
+            e.preventDefault();
+          }}
+        >
           <img
             src={heartCircle}
             alt="wishlist"
-            className="group-hover:hidden w-8 h-8"
+            className="group-hover:hidden group-active:hidden w-8 h-8"
           />
           <img
             src={hoverHeartCircle}
             alt="wishlist"
-            className="hidden group-hover:block w-8 h-8"
+            className="hidden group-hover:block group-active:hidden w-8 h-8"
+          />
+          <img
+            src={activeHeartCircle}
+            alt="wishlist"
+            className="hidden group-active:block w-8 h-8"
           />
         </button>
       </div>
@@ -46,7 +57,7 @@ const ProductCard = ({ product }) => {
           <span className="text-[#C5000D] font-helvetica-light font-bold text-[15px] mr-2">
             Rs.{product.newPrice}
           </span>
-          <span className="line-through text-[15px] text-black font-helvetica-thin font-bold">
+          <span className="line-through text-[15px] text-black font-helvetica-light font-bold">
             Rs.{product.oldPrice}
           </span>
         </div>

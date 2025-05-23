@@ -1,31 +1,40 @@
 import React, { useEffect, useRef, useState } from "react";
-import heart from "../assets/icons/heart-circle.svg";
+import heartCircle from "../assets/icons/heart-circle.svg";
+import hoverHeartCircle from "../assets/icons/red-heart.svg";
+import activeHeartCircle from "../assets/icons/red-heart-active.svg";
 import ReviewSidebar from "../components/Product/ReviewSidebar";
+import SimilarItems from "../components/Product/SimilarItems";
+import CategoryTab from "../components/Product/CategoryTab";
 
 const ProductDetails = () => {
   const [showDescription, setShowDescription] = useState(false);
+  const [showDelivery, setShowDelivery] = useState(false);
   const [reviewState, setReviewState] = useState(false);
   const [isSticky, setIsSticky] = useState(true);
-  const footerRef = useRef(null);
+  const addToCartRef = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setIsSticky(!entry.isIntersecting);
+        // Check if the element is NOT intersecting AND its top edge is above the viewport (scrolled up)
+        // If both conditions are true, set isSticky to true.
+        // Otherwise (if it's intersecting, or if it scrolled downwards out of view), set isSticky to false.
+        setIsSticky(!entry.isIntersecting && entry.boundingClientRect.top > 0);
       },
       {
-        root: null,
-        threshold: 0,
+        root: null, // The viewport is the observing root
+        threshold: 0, // Trigger when 0% of the target is visible
       }
     );
 
-    if (footerRef.current) {
-      observer.observe(footerRef.current);
+    // Observe the original Add to Cart button's container
+    if (addToCartRef.current) {
+      observer.observe(addToCartRef.current);
     }
 
     return () => {
-      if (footerRef.current) {
-        observer.unobserve(footerRef.current);
+      if (addToCartRef.current) {
+        observer.unobserve(addToCartRef.current);
       }
     };
   }, []);
@@ -33,7 +42,7 @@ const ProductDetails = () => {
   return (
     <>
       {" "}
-      <div className="flex text-[15px] font-helvetica-regular  flex-col md:flex-row gap-4 md:gap-10 lg:gap-24 xl:gap-32 2xl:gap-44 md:pe-10 lg:pe-24 xl:pe-32 2xl:pe-44 xl:w-[75%] mx-auto tracking-wider">
+      <div className="flex font-helvetica-medium  tracking-wider text-[15px] pb-20  flex-col md:flex-row gap-4 md:gap-10 lg:gap-24 xl:gap-32 2xl:gap-44 md:pe-10 lg:pe-24 xl:pe-32 2xl:pe-44 xl:w-[75%] mx-auto ">
         {/* Left: Image */}
         <div className="w-full md:w-1/2 relative">
           <img
@@ -42,8 +51,17 @@ const ProductDetails = () => {
             className="w-full"
           />
           <div className="absolute top-2 right-2 z-10">
-            <button className="md:hidden">
-              <img src={heart} alt="wishlist" className="w-8 h-8" />
+            <button className="md:hidden group">
+              <img
+                src={heartCircle}
+                alt="wishlist"
+                className="group-active:hidden w-8 h-8"
+              />
+              <img
+                src={activeHeartCircle}
+                alt="wishlist"
+                className="hidden group-active:block w-8 h-8"
+              />
             </button>
           </div>
         </div>
@@ -52,9 +70,27 @@ const ProductDetails = () => {
         <div className="w-full px-5 md:px-0 md:w-1/2 xl:pt-10 flex flex-col gap-2">
           <div className="flex justify-between items-center">
             {" "}
-            <div className=" bg-black text-white px-2 w-fit">-25%</div>
+            <div className=" bg-black text-white font-medium font-helvetica-medium py-1 px-2 w-fit">
+              -25%
+            </div>
             <button className="hidden md:block  ">
-              <img src={heart} alt="wishlist" className=" w-8 h-8" />
+              <button className="group">
+                <img
+                  src={heartCircle}
+                  alt="wishlist"
+                  className="group-hover:hidden w-8 h-8"
+                />
+                <img
+                  src={hoverHeartCircle}
+                  alt="wishlist"
+                  className="hidden group-hover:block group-active:hidden w-8 h-8"
+                />
+                <img
+                  src={activeHeartCircle}
+                  alt="wishlist"
+                  className="hidden group-active:block w-8 h-8"
+                />
+              </button>
             </button>
           </div>
 
@@ -63,7 +99,7 @@ const ProductDetails = () => {
           </h1>
 
           <div className="flex items-center gap-2 tracking-wider">
-            <span className="text-[#C5000D] text-[17px] font-bold">
+            <span className="text-[#C5000D] text-[17px] font-helvetica-light font-bold">
               Rs. 1,129.00
             </span>
             <span className="line-through text-black font-helvetica-light text-[17px] font-bold ">
@@ -81,7 +117,7 @@ const ProductDetails = () => {
             {["S", "M", "L", "XL"].map((size) => (
               <button
                 key={size}
-                className="bg-black text-[#F4ECD7] w-16 md:w-18 2xl:w-20 h-14  py-3 px-3  hover:bg-[#F4ECD7] hover:text-black"
+                className="bg-black text-white  hover:font-helvetica-bold  w-16 md:w-18 2xl:w-20 h-14  py-3 px-3  hover:bg-[#F4ECD7] hover:text-black"
               >
                 {size}
               </button>
@@ -95,11 +131,11 @@ const ProductDetails = () => {
           </div>
 
           {/* Add to Bag Button */}
-          <div ref={footerRef} className=""></div>
+          <div ref={addToCartRef} className=""></div>
           <div
             className={`${
               isSticky ? "fixed bottom-0 left-0 right-0 bg-white " : "static"
-            }  bg-black text-white hover:bg-[#F4ECD7] hover:text-black hover:font-helvetica-bold  text-center py-4 px-5 z-50`}
+            }  bg-black text-white hover:bg-[#F4ECD7] hover:text-black hover:font-helvetica-bold  text-center py-4 px-5 z-40`}
             style={
               isSticky ? { boxShadow: "0 -4px 12px rgba(0, 0, 0, 0.15)" } : {}
             }
@@ -123,7 +159,7 @@ const ProductDetails = () => {
               REVIEWS [13]
             </div>
             <div className="flex items-end gap-2">
-              <div className="flex gap-1 text-yellow-500 text-xl">★★★★☆</div>
+              <div className="flex gap-1  text-xl">★★★★☆</div>
               <div className="">4.8</div>
             </div>
           </div>
@@ -132,7 +168,7 @@ const ProductDetails = () => {
           <div
             className={`mt-4   ${
               showDescription && "font-helvetica-bold"
-            } border-t pt-2 cursor-pointer flex justify-between items-center`}
+            }  pt-2 cursor-pointer flex justify-between items-center`}
             onClick={() => setShowDescription(!showDescription)}
           >
             DESCRIPTION & FIT{" "}
@@ -186,8 +222,38 @@ const ProductDetails = () => {
               </p>
             </div>
           )}
+
+          <div className="mb-10 ">
+            {/* Delivery & Payment Toggle */}
+            <div
+              className={`${
+                showDelivery && "font-helvetica-bold"
+              } pt-2 cursor-pointer flex justify-between items-center`}
+              onClick={() => setShowDelivery(!showDelivery)}
+            >
+              DELIVERY & PAYMENT{" "}
+              <span className="text-xl">{showDelivery ? "−" : "+"}</span>
+            </div>
+
+            {/* Toggle Content */}
+            {showDelivery && (
+              <div className="mt-2 tracking-wide  leading-relaxed space-y-2">
+                <p>Delivery Time : 7-8 days</p>
+
+                <p>
+                  Due to additional health and safety measures to protect our
+                  logistics teams, your delivery may take a little longer.
+                  Please note, that we might not be able to deliver to all
+                  areas. You will be notified about the same during checkout. We
+                  deliver all days, except bank holidays.
+                </p>
+              </div>
+            )}
+          </div>
         </div>
       </div>
+      <SimilarItems />
+      <CategoryTab />
       <ReviewSidebar
         reviewState={reviewState}
         setReviewState={setReviewState}
